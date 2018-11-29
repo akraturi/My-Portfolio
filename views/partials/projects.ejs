@@ -8,7 +8,12 @@
           <div class="resume-timeline-item-header mb-2">
             <div class="d-flex flex-column flex-md-row">
                 <h3 class="resume-position-title font-weight-bold mb-1">Lead Developer</h3>
-                <div class="resume-company-name ml-auto">Startup Hub</div>
+                <div class="resume-company-name ml-auto">
+                  <div class="d-inline-flex">
+                    <%- include('partials/snippets/edit.ejs',{form_url:"/projects/new",text:""}); %>
+                    <%- include('partials/snippets/remove.ejs',{delete_url:"/"}); %>
+                  </div>
+                </div>
             </div><!--//row-->
             <div class="resume-position-time">2018 - Present</div>
           </div><!--//resume-timeline-item-header-->
@@ -109,12 +114,8 @@
 
 
       </div><!--//resume-timeline-->
+   </div>
 
-
-
-
-
-
-    </div>
-  </section><!--//experience-section-->
+    <%- include('partials/snippets/add.ejs',{add_url:"projects/new"})%>
+ </section><!--//experience-section-->
 </div>

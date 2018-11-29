@@ -6,6 +6,10 @@
           <i class="resume-award-icon fas fa-trophy position-absolute" data-fa-transform="shrink-2"></i>
           <div class="resume-award-name">Award Name Lorem</div>
           <div class="resume-award-desc">Award desc goes here, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.</div>
+          <div class="d-inline-flex">
+            <%- include('partials/snippets/edit.ejs',{form_url:"/projects/new",text:""}); %>
+            <%- include('partials/snippets/remove.ejs',{delete_url:"/"}); %>
+          </div>
       </li>
       <li class="mb-0 pl-4 position-relative">
           <i class="resume-award-icon fas fa-trophy position-absolute" data-fa-transform="shrink-2"></i>
@@ -14,4 +18,5 @@
       </li>
     </ul>
   </div>
+  <%- include('partials/snippets/add.ejs',{add_url:'/achievements/new'});%>
 </section><!--//interests-section-->

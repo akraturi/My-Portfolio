@@ -6,6 +6,10 @@
           <div class="resume-degree font-weight-bold">MSc in Computer Science</div>
           <div class="resume-degree-org">University College London</div>
           <div class="resume-degree-time">2010 - 2011</div>
+          <div class="d-inline-flex">
+            <%- include('partials/snippets/edit.ejs',{form_url:"/projects/new",text:""}); %>
+            <%- include('partials/snippets/remove.ejs',{delete_url:"/"}); %>
+          </div>
       </li>
       <li>
           <div class="resume-degree font-weight-bold">BSc Maths and Physics</div>
@@ -14,4 +18,5 @@
       </li>
     </ul>
   </div>
+    <%- include('partials/snippets/add.ejs',{add_url:'/education/new'});%>
 </section><!--//education-section-->

@@ -1,6 +1,7 @@
+<% include ../partials/header.ejs %>
 <header class="resume-header pt-4 pt-md-0">
   <div class="media flex-column flex-md-row">
-    <img class="mr-3 img-fluid picture mx-auto" src="images/ak_profile.jpg" alt="">
+    <img class="mr-3 img-fluid picture mx-auto" src="./public/images/ak_profile.jpg" alt="">
     <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
       <div class="primary-info">
         <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">Amit Kishor Raturi</h1>
@@ -22,6 +23,31 @@
       </div><!--//secondary-info-->
 
     </div><!--//media-body-->
-    <%- include('partials/snippets/edit.ejs',{text:"",form_url:"/header/new"});%>
   </div><!--//media-->
 </header>
+<p></p>
+<div class="container col-lg-6">
+  <h4>Add/Update Details</h4>
+  <p></p>
+  <form action="" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleCheck1">Designation</label>
+    <input type="text" class="form-control" id="exampleCheck1" placeholder="Designations" >
+  </div>
+  <div class="form-group">
+    <label for="exampleCheck2">Contact No.</label>
+    <input type="text" class="form-control" id="exampleCheck2" placeholder="Contact Number" >
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<% include ../partials/footer.ejs %>
+</div>

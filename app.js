@@ -21,11 +21,43 @@ app.get('/',function(req,res){
     res.render('index',{})
 });
 
-app.get('/about',function(req,res){
-    res.send("Hi there!")
+app.get('/header/new',function(req,res){
+    res.render('forms/resume_header',{});
+});
+
+app.get('/about/new',function(req,res){
+     res.render('forms/about_me',{});
+});
+
+app.get('/skills/new',function(req,res){
+     res.render('forms/skills',{});
+});
+
+app.get('/other_skills/new',function(req,res){
+     res.render('forms/other_skills',{}) ;
+});
+
+app.get('/education/new',function(req,res){
+     res.render('forms/education',{}) ;
+});
+
+app.get('/achievements/new',function(req,res){
+     res.render('forms/achievements',{}) ;
 });
 
 
+app.get('/languages/new',function(req,res){
+     res.render('forms/languages',{}) ;
+});
+
+app.get('/interests/new',function(req,res){
+     res.render('forms/interests',{}) ;
+});
+
+app.get('/projects/new',function(req,res){
+     res.render('forms/project',{}) ;
+});
+
 app.listen(8000,function(){
   console.log("Server running at port 8000");
-})
+});
