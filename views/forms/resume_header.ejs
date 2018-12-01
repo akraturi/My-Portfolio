@@ -1,50 +1,37 @@
 <% include ../partials/header.ejs %>
-<header class="resume-header pt-4 pt-md-0">
-  <div class="media flex-column flex-md-row">
-    <img class="mr-3 img-fluid picture mx-auto" src="./public/images/ak_profile.jpg" alt="">
-    <div class="media-body p-4 d-flex flex-column flex-md-row mx-auto mx-lg-0">
-      <div class="primary-info">
-        <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">Amit Kishor Raturi</h1>
-        <div class="title mb-3">Android Developer</div>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a href="#"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>Amitkishorraturi.cse16@nituk.ac.in</a></li>
-          <li><a href="#"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>9557491531</a></li>
-        </ul>
-      </div><!--//primary-info-->
-      <div class="secondary-info ml-md-auto mt-2">
-        <ul class="resume-social list-unstyled">
-                <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i class="fab fa-linkedin-in fa-fw"></i></span>linkedin.com/in/stevedoe</a></li>
-                <li class="mb-3"><a href="#"><span class="fa-container text-center mr-2"><i class="fab fa-github-alt fa-fw"></i></span>github.com/username</a></li>
-                <li class="mb-3">
-                </li>
-
-                <li><a href="#"><span class="fa-container text-center mr-2"><i class="fas fa-globe"></i></span>yourwebsite.com</a></li>
-        </ul>
-      </div><!--//secondary-info-->
-
-    </div><!--//media-body-->
-  </div><!--//media-->
-</header>
 <p></p>
 <div class="container col-lg-6">
   <h4>Add/Update Details</h4>
   <p></p>
-  <form action="" method="post">
+  <form action="/header" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" name="header[email]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<%= profile.header.email %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Name</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+    <input type="text" class="form-control" name="header[name]" id="exampleInputPassword1" placeholder="Name" value="<%= profile.header.name %>">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword2">Image</label>
+    <input type="text" class="form-control" name="header[image]" id="exampleInputPassword2" placeholder="Image Url" value="<%= profile.header.image %>">
   </div>
   <div class="form-group">
     <label for="exampleCheck1">Designation</label>
-    <input type="text" class="form-control" id="exampleCheck1" placeholder="Designations" >
+    <input type="text" class="form-control" name="header[positions]" id="exampleCheck1" placeholder="Designations(separated by ,)" value="<%= profile.header.positions %>">
   </div>
   <div class="form-group">
     <label for="exampleCheck2">Contact No.</label>
-    <input type="text" class="form-control" id="exampleCheck2" placeholder="Contact Number" >
+    <input type="text" class="form-control" id="exampleCheck2" name="header[phoneNumber]" placeholder="Contact Number" value="<%= profile.header.phoneNumber %>" >
+  </div>
+  <div class="form-group">
+    <label for="exampleCheck3">Social Links</label>
+    <input type="text" name="socialLinks[links]" class="form-control" id="exampleCheck3"  placeholder="link1 link2 ..(with http:// and space separated)" value="<%= profile.socialLinks %>" >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleCheck4">Icons</label>
+    <input type="text" name="socialLinks[icons]" class="form-control" id="exampleCheck4" placeholder="fontawsome icon classes(class1,class2..(, separeted))" value="<%= profile.socialIcons %>" >
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,63 +1,42 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const ejs = require('ejs');
+const path = require('path');
+const router = require('./routes');
 
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+const ejs = require('ejs');
+const seedDB  = require('./seeds');
+const Profile  = require('./models/portfoliomodels');
 // modify the source file for this lol!
 // ejs.open = '{{'
 // ejs.close = '}}'
 
 var app = express();
+// setup imported router
+app.use(router)
+// setup root view path
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine','ejs')
-// to grab the data out of post requests
-app.use(bodyParser.urlencoded({extended: true}))
+
 // path to static files
 app.use(express.static('public'))
 // get or create the database
-mongoose.connect("mongodb://localhost/my_blog",{ useNewUrlParser: true })
+mongoose.connect("mongodb://localhost/my_portfolio",{ useNewUrlParser: true })
 
-app.get('/',function(req,res){
-    res.render('index',{})
-});
+// seed the db with initial data whenever the server starts
+// seedDB();
 
-app.get('/header/new',function(req,res){
-    res.render('forms/resume_header',{});
-});
+// Profile.findOne(function(err,profile){
+//   if (err) {
+//     console.log("error");
+//   }else {
+//     console.log("sucess");
+//     console.log("from main server");
+//     console.log(profile);
+//   }
+//   app.locals.profile = profile;
+// })
 
-app.get('/about/new',function(req,res){
-     res.render('forms/about_me',{});
-});
-
-app.get('/skills/new',function(req,res){
-     res.render('forms/skills',{});
-});
-
-app.get('/other_skills/new',function(req,res){
-     res.render('forms/other_skills',{}) ;
-});
-
-app.get('/education/new',function(req,res){
-     res.render('forms/education',{}) ;
-});
-
-app.get('/achievements/new',function(req,res){
-     res.render('forms/achievements',{}) ;
-});
-
-
-app.get('/languages/new',function(req,res){
-     res.render('forms/languages',{}) ;
-});
-
-app.get('/interests/new',function(req,res){
-     res.render('forms/interests',{}) ;
-});
-
-app.get('/projects/new',function(req,res){
-     res.render('forms/project',{}) ;
-});
-
-app.listen(8000,function(){
-  console.log("Server running at port 8000");
+app.listen(8080,function(){
+  console.log("Server running at port 8080");
 });

@@ -1,7 +1,9 @@
 <section class="resume-section summary-section mb-5">
   <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Career Summary</h2>
   <div class="resume-section-content">
-    <p class="mb-0">Summarise your career here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can download this free resume/CV template here. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget.</p>
+    <p class="mb-0">
+      <%- about_me %>
+    </p>
   </div>
-  <%- include('partials/snippets/edit.ejs',{text:"Edit",form_url:'/about/new'});%>
+  <%- include('snippets/edit.ejs',{text:"Edit",form_url:'/about/new',about_me:about_me});%>
 </section><!--//summary-section-->

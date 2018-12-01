@@ -1,0 +1,75 @@
+<% include ../partials/header.ejs %>
+<div class="container col-lg-8">
+<%var title =""%>
+<%var description ="";%>
+<%var images="";%>
+<%var technologies="";%>
+<%var time="";%>
+<%var link="";%>
+<%var id="";%>
+  <% if (typeof project != 'undefined' && edit) { %>
+  <% title  = project.title; %>
+  <% description = project.description;%>
+  <% images = project.images; %>
+  <% technologies = project.technologies; %>
+  <% time = project.time; %>
+  <% link = project.link; %>
+  <% id = project._id; %>
+<%}%>
+
+
+<h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Add/Update Project</h2>
+<form class="" action="/projects" method="post">
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Title</label>
+    <input type="text" name="project[title]" class="form-control" id="exampleInputPassword1" placeholder="title" value="<%= title%>">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword6">Image Urls</label>
+    <input type="text" class="form-control" name="project[images]" id="exampleInputPassword6" placeholder="Image urls(url1[space]url2..)" value="<%= images %>">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword2">Time Period</label>
+    <input type="text" class="form-control" name="project[time]" id="exampleInputPassword2" placeholder="From-To" value="<%= time %>">
+  </div>
+  <div class="card">
+    <h4>Description Format</h4>
+  <div class="card-body">
+    <textarea class="form-control" rows="10" cols="10">
+    <p>About project here</p>
+    <h4 class="resume-timeline-item-desc-heading font-weight-bold">Features:</h4>
+    <p>Features short intro here</p>
+    <ul>
+      <li>feature1</li>
+      <li>feature1</li>
+      <li>feature1</li>
+      <li>feature1</li>
+    </ul>
+  </textarea>
+  </div>
+ </div>
+  <div class="form-group">
+  <label for="exampleFormControlTextarea1">Description</label>
+  <textarea class="form-control" rows="10" cols="10" name="project[description]" id="exampleFormControlTextarea1" placeholder="Project Description" rows="3"><%= description %></textarea>
+ </div>
+
+ <div class="form-group">
+   <label for="skillName">Technologies Used</label>
+   <input type="text" class="form-control" id="skillName" name="project[technologies]" value="<%= technologies %>" placeholder="technologies(tech1,tech2..) separated by ,">
+ </div>
+
+ <div class="form-group">
+   <label for="skillName1">Code link</label>
+   <input type="text" class="form-control" id="skillName1" name="project[link]" value="<%= link %>" placeholder="Github link to project">
+ </div>
+
+ <input type="hidden" name="edit_id"  value="<%= id %>">
+
+ <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+</div>
+<% include ../partials/footer.ejs %>

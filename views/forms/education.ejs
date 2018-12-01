@@ -1,22 +1,32 @@
 <% include ../partials/header.ejs %>
 
 <div class="container col-lg-6">
+  <%var title =""%>
+  <%var institution ="";%>
+  <%var time ="";%>
+  <%var id="";%>
+    <% if (typeof education != 'undefined' && edit) { %>
+    <% title  = education.title; %>
+    <% institution = education.institution;%>
+    <% time = education.time; %>
+    <% id = education._id; %>
+  <%}%>
 
-  
 
-  <form class="" action="" method="post">
+  <form class="" action="/education" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Degree Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Degree">
+    <input type="text" class="form-control" name="education[title]" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Degree" value="<%= title %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Institution</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Institution">
+    <input type="text" class="form-control" name="education[institution]" id="exampleInputPassword1" placeholder="Institution" value="<%= institution %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword2">Time Period</label>
-    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="From-To">
+    <input type="text" class="form-control" name="education[time]" id="exampleInputPassword2" placeholder="From-To" value="<%= time %>">
   </div>
+  <input type="hidden" name="edit_id"  value="<%= id %>">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

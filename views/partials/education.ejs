@@ -2,20 +2,17 @@
   <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Education</h2>
   <div class="resume-section-content">
     <ul class="list-unstyled">
-      <li class="mb-2">
-          <div class="resume-degree font-weight-bold">MSc in Computer Science</div>
-          <div class="resume-degree-org">University College London</div>
-          <div class="resume-degree-time">2010 - 2011</div>
-          <div class="d-inline-flex">
-            <%- include('partials/snippets/edit.ejs',{form_url:"/projects/new",text:""}); %>
-            <%- include('partials/snippets/remove.ejs',{delete_url:"/"}); %>
-          </div>
-      </li>
-      <li>
-          <div class="resume-degree font-weight-bold">BSc Maths and Physics</div>
-          <div class="resume-degree-org">Imperial College London</div>
-          <div class="resume-degree-time">2007 - 2010</div>
-      </li>
+      <% profile.education.forEach(function(education){ %>
+        <li class="mb-2">
+            <div class="resume-degree font-weight-bold"><%= education.title %></div>
+            <div class="resume-degree-org"><%= education.institution %></div>
+            <div class="resume-degree-time"><%= education.time %></div>
+            <div class="d-inline-flex">
+              <%- include('partials/snippets/edit.ejs',{form_url:"/education/"+education._id+"/edit",text:""}); %>
+              <%- include('partials/snippets/remove.ejs',{delete_url:"/education/"+education._id+"/delete"}); %>
+            </div>
+        </li>
+      <% }) %>
     </ul>
   </div>
     <%- include('partials/snippets/add.ejs',{add_url:'/education/new'});%>

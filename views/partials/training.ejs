@@ -1,0 +1,19 @@
+<section class="resume-section reference-section mb-5">
+  <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Training and Internships</h2>
+  <div class="resume-section-content">
+    <ul class="list-unstyled resume-awards-list">
+      <% profile.trainings.forEach(function(training){ %>
+      <li class="mb-2 pl-4 position-relative">
+          <i class="resume-award-icon fas fa-chalkboard-teacher position-absolute" data-fa-transform="shrink-2"></i>
+          <div class="resume-award-name"><%= training.title %></div>
+          <div class="resume-award-desc"><%= training.description %></div>
+          <div class="d-inline-flex">
+            <%- include('partials/snippets/edit.ejs',{form_url:"/trainings/"+training._id+"/edit",text:""}); %>
+            <%- include('partials/snippets/remove.ejs',{delete_url:"/trainings/"+training._id+"/delete"}); %>
+          </div>
+      </li>
+      <%  }) %>
+    </ul>
+  </div>
+  <%- include('partials/snippets/add.ejs',{add_url:'/trainings/new'});%>
+</section><!--//interests-section-->
